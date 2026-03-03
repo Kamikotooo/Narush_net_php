@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>НАРУШЕНИЙ.НЕТ - Создание заявления</title>
+    <title>НАРУШЕНИЙ.НЕТ - Редактирование заявления</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-        
-    </style>
 </head>
 <body>
     <div class="container">
@@ -21,25 +18,32 @@
 
         <div class="breadcrumb">
             <a href="{{ route('reports.index') }}">Главная</a> > 
-            <strong>Создание заявления</strong>
+            <strong>Редактирование заявления</strong>
         </div>
 
         <div class="form-container">
-            <form action="{{ route('reports.store') }}" method="POST">
+            <form method="POST" action="{{ route('reports.update', $report->id) }}">
                 @csrf
+                @method('PUT')
                 
                 <div class="form-group">
                     <label class="form-label">регистрационный номер авто</label>
-                    <input type="text" name="number" class="form-input" placeholder="А123ВС 174" required>
+                    <input type="text" 
+                           name="number" 
+                           class="form-input" 
+                           value="{{ old('number', $report->number) }}" 
+                           required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">описание нарушения</label>
-                    <textarea name="description" class="form-input" placeholder="Опишите нарушение..." required></textarea>
+                    <textarea name="description" 
+                              class="form-input" 
+                              required>{{ old('description', $report->description) }}</textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">
-                    создать заявление
+                    Обновить
                 </button>
             </form>
         </div>
