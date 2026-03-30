@@ -21,7 +21,9 @@
  
         <button class="btn-create" onclick="location.href='{{ route('reports.create') }}'">
             создать заявление
-        </button> 
+        </button>
+
+        <
 
         <div class="reports-grid">
             @foreach($reports as $report)
@@ -43,18 +45,14 @@
                     
                     <p class="description">{{ $report->description }}</p>
                     
-                    <!-- <div class="status">
+                    <div class="status">
                         Статус заявления - 
-                        @if($report->status == 'новое')
-                            <span class="status-new">новое</span>
-                        @elseif($report->status == 'отклонено')
-                            <span class="status-rejected">отклонено</span>
-                        @elseif($report->status == 'подтверждено')
-                            <span class="status-confirmed">подтверждено</span>
-                        @else
-                            <span>{{ $report->status }}</span>
+                        @if($report->status)
+                            <span class="status-{{ $report->status->name }}">{{ $report->status->name }}</span>
+                         @else
+                            <span>статус не установлен</span> 
                         @endif
-                    </div> -->
+                    </div>
                 </div>
             @endforeach
         </div>
