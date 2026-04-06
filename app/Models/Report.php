@@ -10,6 +10,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Report extends Model
 {
     use SoftDeletes, HasFactory;
+
+     protected $fillable = [
+        'number',
+        'description',
+        'status_id',
+        'user_id',
+    ];
     
     public function status(): BelongsTo
     {

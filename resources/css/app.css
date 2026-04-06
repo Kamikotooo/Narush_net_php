@@ -237,6 +237,44 @@
         .btn-submit:hover {
             background: #cc0000;
         }
+        /* Статусы */
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.status-новое {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.status-подтверждено {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-отклонено {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Или на английском (лучше): */
+.status-new {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.status-confirmed {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
 
 
   
