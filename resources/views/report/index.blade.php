@@ -18,7 +18,7 @@
                 <span>▼</span>
             </div>
         </div>
- 
+    <x-app-layout>
         <button class="btn-create" onclick="location.href='{{ route('reports.create') }}'">
             создать заявление
         </button>
@@ -80,5 +80,6 @@
             {{ $reports->appends(request()->query())->links() }}
         </div>
     </div>
+    </x-app-layout>
 </body>
 </html>

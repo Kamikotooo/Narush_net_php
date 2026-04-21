@@ -18,7 +18,7 @@
                 <span>▼</span>
             </div>
         </div>
-
+    <x-app-layout>
         <div class="breadcrumb">
             <a href="{{ route('reports.index') }}">Главная</a> > 
             <strong>Создание заявления</strong>
@@ -43,6 +43,7 @@
                 </button>
             </form>
         </div>
+    </x-app-layout>
     </div>
 </body>
 </html>

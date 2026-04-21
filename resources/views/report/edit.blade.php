@@ -16,6 +16,7 @@
             </div>
         </div>
 
+    <x-app-layout>
         <div class="breadcrumb">
             <a href="{{ route('reports.index') }}">Главная</a> > 
             <strong>Редактирование заявления</strong>
@@ -47,6 +48,7 @@
                 </button>
             </form>
         </div>
+    </x-app-layout>
     </div>
 </body>
 </html>
