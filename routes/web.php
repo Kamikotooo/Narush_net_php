@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
+use App\Http\Middleware\Admin;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,7 +24,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
     Route::get('/reports/{report}/edit', [ReportController::class, 'edit'])->name('reports.edit');
     Route::put('/reports/{report}', [ReportController::class, 'update'])->name('reports.update');
+
     
+});
+
+Route::middleware((Admin::class))->group(function(){
+    Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
+    Route::patch('/reports/status/{report}', [ReportController::class, 'statusUpdate'])
+        ->name('reports.status.update');
 });
 
 
