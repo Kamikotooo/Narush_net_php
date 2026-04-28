@@ -6,6 +6,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Middleware\Admin;
 use App\Http\Controllers\AdminController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
     Route::get('/reports/{report}/edit', [ReportController::class, 'edit'])->name('reports.edit');
     Route::put('/reports/{report}', [ReportController::class, 'update'])->name('reports.update');
+    
 
     
 });
@@ -35,6 +37,12 @@ Route::middleware((Admin::class))->group(function(){
 });
 
 
+Route::get('/index', function () {
+    return view('index');
+});
 
+Route::get('/second', function () {
+    return view('second');
+})->name('second');
 
 require __DIR__.'/auth.php';

@@ -59,11 +59,10 @@
                             </form>
                         @else
                             <!-- Показываем просто текст статуса -->
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium 
-                                {{ $report->status->name === 'подтверждено' ? 'bg-green-100 text-green-800' : '' }}
-                                {{ $report->status->name === 'отклонено' ? 'bg-red-100 text-red-800' : '' }}">
+                            
+                            <x-status :type="$report->status->id">
                                 {{ $report->status->name }}
-                            </span>
+                            </x-status>
                         @endif
                     </td>
             @endforeach
